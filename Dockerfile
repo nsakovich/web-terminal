@@ -11,4 +11,4 @@ COPY ./app /terminal/app
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "cd ./app && node app/index.js"]
+CMD ["sh", "-c", "cd ./app && node index.js"]
