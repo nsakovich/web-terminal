@@ -1,10 +1,25 @@
+var getRowsCount = function() {
+  return Math.round(window.innerHeight / 18) - 1;
+};
+
+var cols=80,
+    rows = getRowsCount();
+
 var terminalContainer = document.getElementById('terminal-container'),
-    term = new Terminal(),
+    term = new Terminal({
+      rows: getRowsCount()
+    }),
     socket,
     termid;
 
+window.onresize = function(event) {
+    term.resize(cols, Math.round(window.innerHeight / 18) - 1);
+};
+
 term.open(terminalContainer);
 term.fit();
+
+term.toggleFullscreen();
 
 if (document.location.pathname) {
   var parts = document.location.pathname.split('/')
@@ -15,9 +30,6 @@ if (document.location.pathname) {
 } else {
   socket = io.connect();
 }
-
-var cols=80,
-    rows=24;
 
 socket.emit('create', cols, rows, function(err, data) {
   if (err) return self._destroy();
