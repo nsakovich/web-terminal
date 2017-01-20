@@ -4,7 +4,7 @@ COPY ./package.json /terminal/package.json
 
 WORKDIR /terminal
 
-RUN apk add --no-cache make gcc g++ python
+RUN apt-get install make gcc g++ python
 RUN npm install
 
 COPY ./app /terminal/app
