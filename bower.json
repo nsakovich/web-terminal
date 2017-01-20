@@ -1,0 +1,10 @@
+{
+  "name": "web-terminal",
+  "version": "0.0.0",
+  "description": "Web Terminal",
+  "license": "MIT",
+  "dependencies": {
+    "socket.io": "~1.7.2",
+    "xterm.js": "~2.2.3"
+  }
+}
