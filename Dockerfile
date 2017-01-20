@@ -6,7 +6,7 @@ COPY ./.bowerrc /terminal/.bowerrc
 
 WORKDIR /terminal
 
-RUN apk add --no-cache python
+RUN apk add --no-cache make gcc g++ python
 RUN npm install -g bower
 RUN npm install
 
