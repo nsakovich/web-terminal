@@ -1,4 +1,5 @@
 FROM node:alpine
+FROM python
 
 COPY ./package.json /terminal/package.json
 COPY ./bower.json /terminal/bower.json
