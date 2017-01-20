@@ -1,4 +1,4 @@
-FROM node:5-onbuild
+FROM node:6-onbuild
 
 COPY ./package.json /terminal/package.json
 
