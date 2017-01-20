@@ -14,4 +14,4 @@ COPY ./app /terminal/app
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "bower install --allow-root && node app/index.js"]
+CMD ["sh", "-c", "node app/index.js"]
