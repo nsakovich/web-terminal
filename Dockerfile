@@ -6,7 +6,7 @@ COPY ./.bowerrc /terminal/.bowerrc
 
 WORKDIR /terminal
 
-RUN apt-get install -y python python-dev python-pip python-virtualenv
+RUN apk add --no-cache python
 RUN npm install -g bower
 RUN npm install
 
