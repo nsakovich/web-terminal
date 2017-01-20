@@ -1,5 +1,4 @@
 FROM node:alpine
-FROM python
 
 COPY ./package.json /terminal/package.json
 COPY ./bower.json /terminal/bower.json
@@ -7,6 +6,7 @@ COPY ./.bowerrc /terminal/.bowerrc
 
 WORKDIR /terminal
 
+RUN apt-get install -y python python-dev python-pip python-virtualenv
 RUN npm install -g bower
 RUN npm install
 
