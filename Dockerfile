@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:6.9.4
 
 COPY ./package.json /terminal/package.json
 
