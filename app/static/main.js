@@ -53,6 +53,13 @@ term.on('resize', function(data) {
 socket.on('connect', function() {
   term.writeln('Connected.');
   term.writeln('');
+  var search = window.location.search;
+
+  setTimeout(function() {
+    if (search) {
+      term.send(decodeURIComponent().split('command=').pop() + '\n'); }, 500);
+    }
+  }
 });
 
 socket.on('data', function(id, data) {
