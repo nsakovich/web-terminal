@@ -1,5 +1,5 @@
 var getRowsCount = function() {
-  return Math.round(window.innerHeight / 18) - 1;
+  return Math.round(window.innerHeight / 16) - 1;
 };
 
 var getColumnsCount = function() {
