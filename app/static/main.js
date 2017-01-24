@@ -2,7 +2,11 @@ var getRowsCount = function() {
   return Math.round(window.innerHeight / 18) - 1;
 };
 
-var cols=80,
+var getColumnsCount = function() {
+  return Math.round(window.innerWidth / 11) - 1;
+};
+
+var cols=getColumnsCount(),
     rows = getRowsCount();
 
 var terminalContainer = document.getElementById('terminal-container'),
@@ -13,7 +17,7 @@ var terminalContainer = document.getElementById('terminal-container'),
     termid;
 
 window.onresize = function(event) {
-    term.resize(cols, Math.round(window.innerHeight / 18) - 1);
+    term.resize(getColumnsCount(), getRowsCount());
 };
 
 term.open(terminalContainer);
