@@ -57,9 +57,9 @@ socket.on('connect', function() {
 
   setTimeout(function() {
     if (search) {
-      term.send(decodeURIComponent().split('command=').pop() + '\n');
+      term.send(decodeURIComponent(window.location.search).split('command=').pop() + '\n');
     }
-  }, 500);
+  });
 });
 
 socket.on('data', function(id, data) {
