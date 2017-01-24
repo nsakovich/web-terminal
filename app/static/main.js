@@ -63,7 +63,7 @@ socket.on('connect', function() {
     if (search) {
       term.send(decodeURIComponent(window.location.search).split('command=').pop() + '\n');
     }
-  });
+  }, 300);
 });
 
 socket.on('data', function(id, data) {
