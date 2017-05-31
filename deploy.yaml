@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins
+  namespace: jenkins
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: master
+    spec:
+      containers:
+      - name: master
+        image: gcr.io/test/jenkins:v3
+        ports:
+        - containerPort: 8080
+        - containerPort: 50000
+        env:
+        - name: JENKINS_OPTS
+          valueFrom:
+            secretKeyRef:
+              name: jenkins
+              key: options
+        volumeMounts:
+        - mountPath: /var/jenkins_home
+          name: jenkins-home
+        - mountPath: /var/run/docker.sock
+          name: docker-socket
+          readOnly: false
+        resources:
+          requests:
+            cpu: 500m
+            memory: 1500Mi
+      volumes:
+      - name: docker-socket
+        hostPath:
+          path: "/var/run/docker.sock"
+      - name: jenkins-home
+        gcePersistentDisk:
+          pdName: jenkins-files
+          fsType: ext4
